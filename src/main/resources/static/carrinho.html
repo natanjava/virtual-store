@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart</title>
+
+     <link rel="stylesheet" href="css/ambos/variaveis-templates.css">
+     <link rel="stylesheet" href="css/ambos/messageBox.css">
+     <link rel="stylesheet" href="css/usuario/geral/layout.css">
+     <link rel="stylesheet" href="css/usuario/geral/header-footer.css">
+     <link rel="stylesheet" href="css/usuario/geral/formularios.css">
+     <link rel="stylesheet" href="css/usuario/especifico/carrinho.css">
+
+     <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous" defer>
+     </script>
+     <script src="js/ambos/geral.js" defer></script>
+     <script src="js/usuario/formularios.js" defer></script>
+     <script src="js/usuario/index.js" defer></script>
+     <script src="js/usuario/pedidos.js" defer></script>
+     <script src="js/usuario/carrinho.js" defer></script>
+ </head>
+
+ <body>
+     <!--Barra de menu-->
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" id="nomeUsuario">
+             <p class="usuario-logado" id="estadoUSuario"></p>
+         </div>
+
+         <header class="header-menu">FutShop</header>
+
+		 <!--Menu-links-->
+		 <div class="menu-links"></div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
+
+    <!--Conteudo-->
+    <main class="container-conteudo">
+        <header class="cabecalho">
+            <nav class="nav-atalhos">
+                <label for="abrirMenu" class="icon-abrir-menu">
+                    <img src="icon/botao-de-menu-de-tres-linhas-horizontais.png" width="25px">
+                </label>
+
+                <a class="aCarrinho" href="carrinho.html">
+                    <img src="icon/carrinho-carrinho.png" width="33px">
+                    <p class="quantidade-carrinho" id="quantidade-carrinho">0</p>
+                </a>
+            </nav>
+
+            <div class="margem"></div>
+        </header>
+
+        <div class="container-carrinho">
+            <div class="div-carrinho">
+                <header class="header-carrinho">
+                    <div class="part-header-1">
+                        <img src="icon/carrinho-carrinho - Copia.png" width="30px">
+                        <p class="titulo-carrinho">Shopping cart</p>
+                    </div>
+                    <div class="part-header-2">
+                        <button class="btn-excluir" onclick="excluir()"><img src="icon/lixo.png" width="23px"></button>
+                    </div>
+                </header>
+
+                <table class="itens-carrinho" id="itensCarrinho">
+                </table>
+
+                <footer class="valor-carrinho">
+                    <div class="pagamento">
+                        <div class="part-footer-1">
+                            <p class="texto-carrinho" id="texto-carrinho">Total: </p>
+                            <p class="total-carrinho" >$</p>
+                            <p class="total-carrinho" id="totalCarrinho">0.0</p>
+                        </div>
+                        <div class="part-footer-2">
+                            <button class="btn-carrinho" onclick="renderizarFormulario('resumoPedido')">Send order</button>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+		<!--Footer-->
+		<div class="footer-container"></div>
+    </main>
+
+     <!--Formulários-->
+     <div class="container-formulario" id="containerFormulario">
+         <img src="icon/esconder.png" class="icon-esconder" onclick="location.reload()">
+
+         <div class="resumo-pedido" id="resumoPedido" name="formulario">
+             <div class="margem-pedido">
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Type of Payment</label>
+                     <select class="select-pedido" id="tipoPagamento" onchange="gerarParcelas()">
+                     <!-- 
+					 <select class="select-pedido" id="tipoPagamento">
+					 -->
+					 	<option value="escolha">Choose</option>
+                         <option value="transfer">Bank Transfer</option>
+                         <option value="credit card">Credit Card</option>
+                     </select>
+                 </div>
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Number of intallments</label>
+                     <select class="select-pedido" id="quantidadeParcelas">
+                         <option value="escolha">Choose</option>
+                     </select>
+                 </div>
+				 <!-- 
+				 -->
+
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Destination address</label>
+                     <p class="endereco" id="enderecoPedido">XXXXX-XX, XXX - XX, XXX, XXXXXXX, XXX, xXX</p>
+                 </div>
+
+                 <div class="divisor-pedido-btn">
+                     <button class="btn-confirmar-pedido" onclick="confirmarPedido()">Confirm order</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!--Message Box-->
+     <div class="esconderMessageBox" id="esconder">
+         <div class="message-box" id="mensagem">
+             <div class="texto-message-box" id="textoMensagem"></div>
+             <footer class="footer-message-box" id="btnMensagem">
+                 <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+             </footer>
+         </div>
+     </div>
+ </body>
+</html>

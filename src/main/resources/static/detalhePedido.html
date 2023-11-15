@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order detail</title>
+
+    <link rel="stylesheet" href="css/ambos/variaveis-templates.css">
+    <link rel="stylesheet" href="css/ambos/messageBox.css">
+    <link rel="stylesheet" href="css/usuario/geral/layout.css">
+    <link rel="stylesheet" href="css/usuario/geral/header-footer.css">
+    <link rel="stylesheet" href="css/usuario/especifico/detalhePedido.css">
+
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous" defer>
+    </script>
+    <script src="js/ambos/geral.js" defer></script>
+    <script src="js/usuario/detalhePedidos.js" defer></script>
+ </head>
+
+ <body>
+<!--Barra de menu-->
+<input type="checkbox" class="input-menu" id="abrirMenu">
+<div class="sobreposicao-menu"></div>
+<nav class="container-menu">
+    <div class="menu-login" id="nomeUsuario">
+        <p class="usuario-logado" id="estadoUSuario"></p>
+    </div>
+
+    <header class="header-menu">FutShop</header>
+
+	<!--Menu-links-->
+	<div class="menu-links"></div>
+
+    <div class="margem-sair">
+        <label for="abrirMenu">
+            <img src="icon/esconder.png" class="icon-fechar-menu">
+        </label>
+    </div>
+</nav>
+
+<!--Conteúdo-->
+<main class="container-conteudo">
+    <header class="cabecalho">
+        <nav class="nav-atalhos">
+            <label for="abrirMenu" class="icon-abrir-menu">
+                <img src="icon/botao-de-menu-de-tres-linhas-horizontais.png" width="25px">
+            </label>
+
+            <a class="aCarrinho" href="carrinho.html">
+                <img src="icon/carrinho-carrinho.png" width="33px">
+                <p class="quantidade-carrinho" id="quantidade-carrinho">0</p>
+            </a>
+        </nav>
+
+        <div class="margem"></div>
+    </header>
+
+    <div class="container-detalhe-pedidos">
+        <div class="detalhe-pedido">
+            <div class="margem-detalhe-pedido">
+                <div class="info-usuario-pedido">
+                    <p class="subtitulo-detalhe-pedido">Client</p>
+                    <p class="texto-detalhe-pedido" id="nomeCliente">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Email</p>
+                    <p class="texto-detalhe-pedido" id="emailCliente">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Phone</p>
+                    <p class="texto-detalhe-pedido" id="celularCliente">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Order number</p>
+                    <p class="texto-detalhe-pedido" id="numeroPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Order date</p>
+                    <p class="texto-detalhe-pedido" id="dataPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Status</p>
+                    <p class="texto-detalhe-pedido" id="statusPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido" name="motivo">Reason for Rejection</p>
+                    <p class="texto-detalhe-pedido" name="motivo" id="motivoRejeicao">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Amount of items</p>
+                    <p class="texto-detalhe-pedido" id="quantidadeItensPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Type of payment</p>
+                    <p class="texto-detalhe-pedido" id="metodoPagamentoPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Monthly installments</p>
+                    <p class="texto-detalhe-pedido" id="parcelamentoPedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Final value</p>
+                    <p class="texto-detalhe-pedido" id="valorpedido">XXX</p>
+
+                    <p class="subtitulo-detalhe-pedido">Destination address</p>
+                    <p class="texto-detalhe-pedido" id="enderecoPedido">XXX</p>
+                </div>
+                <div class="info-itens-pedido" id="itensPedido">
+                    <div class="linha-principal">
+                        <div class="coluna-principal-1">&emsp;Description</div>
+                        <div class="coluna-principal-2">Amt</div>
+                        <div class="coluna-principal-3">Price</div>
+                        <div class="coluna-principal-4">Subtotal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+	<div class="footer-container"></div>
+ </main>
+
+    <!--Message Box-->
+    <div class="esconderMessageBox" id="esconder">
+        <div class="message-box" id="mensagem">
+            <div class="texto-message-box" id="textoMensagem"></div>
+            <footer class="footer-message-box" id="btnMensagem">
+                <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+            </footer>
+        </div>
+    </div>
+
+ </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+
+     <link rel="stylesheet" href="css/ambos/variaveis-templates.css">
+     <link rel="stylesheet" href="css/ambos/messageBox.css">
+     <link rel="stylesheet" href="css/usuario/geral/layout.css">
+     <link rel="stylesheet" href="css/usuario/geral/header-footer.css">
+     <link rel="stylesheet" href="css/usuario/especifico/detalhes.css">
+
+     <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous" defer>
+     </script>
+     <script src="js/ambos/geral.js" defer></script>
+     <script src="js/usuario/carrinho.js" defer></script>
+     <script src="js/usuario/detalhes.js" defer></script>
+ </head>
+
+ <body>
+     <!--Barra de menu-->
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" id="nomeUsuario">
+             <p class="usuario-logado" id="estadoUSuario"></p>
+         </div>
+
+         <header class="header-menu">FutShop</header>
+
+         <!--Menu-links-->
+		 <div class="menu-links"></div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
+
+    <!--Conteudo-->
+    <main class="container-conteudo">
+        <header class="cabecalho">
+            <nav class="nav-atalhos">
+                <label for="abrirMenu" class="icon-abrir-menu">
+                    <img src="icon/botao-de-menu-de-tres-linhas-horizontais.png" width="25px">
+                </label>
+
+                <a class="aCarrinho" href="carrinho.html">
+
+                    <img src="icon/carrinho-carrinho.png" width="33px">
+                    <p class="quantidade-carrinho" id="quantidade-carrinho">0</p>
+                </a>
+            </nav>
+
+            <div class="margem"></div>
+        </header>
+
+        <div class="container-detalhes">
+            <div class="detalhes">
+                <div class="detalhes-img">
+                    <div class="margem-img">
+                        <img id="imgCamisa" class="img">
+                    </div>
+                </div>
+                <div class="detalhes-info">
+                    <div class="margem-info">
+                        <div class="linha-numeros">
+                            <div class="detalhes-promocao">
+                                <span class="display-numeros" id="quantidadeDesconto"></span>
+                                <p class="texto-numeros">Discount</p>
+                            </div>
+                            <div class="detalhes-estoque">
+                                <span class="display-numeros" id="quantidadeEstoque"></span>
+                                <p class="texto-numeros">Item stock</p>
+                            </div>
+                        </div>
+                        <div class="linha-descricao">
+                            <p class="texto-descricao" id="descricao"></p>
+                        </div>
+                        <div class="linha-valor">
+                            <span class="base">
+                                From:&nbsp;<p class="valor-base" id="valorBase"></p>&nbsp;to
+                            </span>
+                            <p class="valor-desconto" id="valorComDesconto"></p>
+                        </div>
+                        <div class="linha-button" id="linha-button">
+                            <button class="button-adcionar" id="adcionaItem">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+		<div class="footer-container"></div>
+    </main>
+
+     <!--Message Box-->
+     <div class="esconderMessageBox" id="esconder">
+         <div class="message-box" id="mensagem">
+             <div class="texto-message-box" id="textoMensagem"></div>
+             <footer class="footer-message-box" id="btnMensagem">
+                 <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+             </footer>
+         </div>
+     </div>
+ </body>
+</html>

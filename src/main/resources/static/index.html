@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>FutShop</title>
+
+     <link rel="stylesheet" href="css/ambos/variaveis-templates.css">
+     <link rel="stylesheet" href="css/ambos/messageBox.css">
+     <link rel="stylesheet" href="css/usuario/geral/layout.css">
+     <link rel="stylesheet" href="css/usuario/geral/header-footer.css">
+     <link rel="stylesheet" href="css/usuario/geral/formularios.css">
+     <link rel="stylesheet" href="css/usuario/especifico/index.css">
+
+     <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous" defer>
+     </script>
+     <script src="js/ambos/geral.js" defer></script>
+     <script src="js/usuario/formularios.js" defer></script>
+     <script src="js/usuario/carrinho.js" defer></script>
+     <script src="js/usuario/validacoes.js" defer></script>
+     <script src="js/usuario/index.js" defer></script>
+ </head>
+
+ <body>
+     <!--Menu Bar-->
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" style="margin-left: -30px; margin-bottom: 20px; margin-top: 20px; text-align: center;">
+             <p class="p-login-cadastro"> 
+				 <a href="loginAdmin.html" class="a-login-cadastro"  >Administrative area</a>
+			 </p>
+             <p class="p-login-cadastro" name="sessao">
+				 <a onclick="renderizarFormulario('login')" class="a-login-cadastro">Login</a>
+				 <br> <a onclick="renderizarFormulario('cadastro')" class="a-login-cadastro">New account</a>
+             </p>
+
+             <p class="p-login-sair" name="sessao"><a class="a-login-cadastro" onclick="sair()">Logout</a></p>
+         </div>
+
+         <header class="header-menu">FutShop</header>
+		
+		 <!--Menu-links-->
+		 <div class="menu-links"></div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
+
+    <!--Content-->
+    <main class="container-conteudo">
+        <header class="cabecalho">
+            <nav class="nav-atalhos">
+                <label for="abrirMenu" class="icon-abrir-menu">
+                    <img src="icon/botao-de-menu-de-tres-linhas-horizontais.png" width="25px">
+                </label>
+
+                <a class="aCarrinho" href="carrinho.html">
+                    <img src="icon/carrinho-carrinho.png" width="33px">
+                    <p class="quantidade-carrinho" id="quantidade-carrinho">0</p>
+                </a>
+            </nav>
+
+            <nav class="nav-pesquisa">
+                <div class="linha">
+                    <input type="text" class="input-pesquisar"
+                           placeholder="Search your product" id="barraPesquisar">
+                    <a class="btn-pesquisa" onclick="buscar('descricao/', $('#barraPesquisar').val())">
+                        <img src="icon/lupa.png" class="icon-lupa">
+                    </a>
+                </div>
+            </nav>
+
+            <div class="margem"></div>
+        </header>
+
+        <!--Sections-->
+        <div class="container-sections">
+
+            <!--Title/buttons-->
+            <header class="header-produto" id="titulo-pesquisa">
+                <div class="filtros">
+                    <div class="linha-filtro">
+                        <img src="icon/sort.png" class="icon-filtrar">
+                        <select id="filtrar" class="escolha-ordenar" onchange="buscar('tipo/', this.value)">
+                            <option value="">Filter by</option>
+                            <option value="Premier League">Premier League</option>
+	                        <option value="La Liga">La Liga</option>
+	                        <option value="Brasileirão">Brasileirão</option>
+	                        <option value="Ligue 1">Ligue 1</option>
+	                        <option value="serie A">Serie A</option>
+	                        <option value="seleções">Seleções</option>
+                        </select>
+                    </div>
+
+                    <div class="linha-filtro">
+                        <img src="icon/ordenar.png" class="icon-ordenar">
+                        <select id="ordenar" class="escolha-ordenar" onchange="buscar('', this.value)">
+                            <option value="">Order by</option>
+                            <option value="promocaoDesc">Biggest discount</option>
+                            <option value="valorAsc">Lowest price</option>
+                            <option value="valorDesc">Highest price</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="texto-titulo-section" id="tituloSection">Footbal Shirts</p>
+            </header>
+
+            <!--Products-->
+            <section class="section-produto" id="section-produto"></section>
+            <!--Search-->
+            <section class="section-produto" id="section-pesquisa"></section>
+        </div>
+
+		<!--Footer Page-->
+		<div class="footer-container"></div>
+    </main>
+
+     <!--Register Forms-->
+     <div class="container-formulario" id="containerFormulario">
+         <img src="icon/esconder.png" class="icon-esconder" onclick="fecharFormulario()">
+
+         <div class="form-cadastro" id="cadastro" name="formulario">
+             <!--Step 1-->
+             <form class="step" id="step-1">
+                 <div class="cadastro-titulo">
+                     <h1 class="cadastro-titulo-texto">Personal data</h1>
+                     <button type="reset" class="btn-limpar"><img src="icon/lixo.png" width="20px"></button>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Full name</label>
+                     <input class="input-form-cadastro-1" type="text"
+                            id="nome" placeholder="Type your full name" name="input-step-1">
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Date of birth</label>
+                     <div class="margem-data-nascimento">
+                         <select class="input-form-cadastro-5" id="mesDataNascimento" onchange="gerarDias()">
+                             <option value="escolha">Month</option>
+                             <option value="01">Jan</option>
+                             <option value="02">Feb</option>
+                             <option value="03">Mar</option>
+                             <option value="04">Apr</option>
+                             <option value="05">May</option>
+                             <option value="06">Jun</option>
+                             <option value="07">Jul</option>
+                             <option value="08">Aug</option>
+                             <option value="09">Sep</option>
+                             <option value="10">Oct</option>
+                             <option value="11">Nov</option>
+                             <option value="12">Dec</option>
+                         </select>
+
+                         <select class="input-form-cadastro-5" id="diaDataNascimento">
+                             <option value="escolha">Day</option>
+                         </select>
+
+                         <select class="input-form-cadastro-5" id="anoDataNascimento">
+                             <option value="escolha">Year</option>
+                         </select>
+                     </div>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">National Register</label>
+                     <input class="input-form-cadastro-2" type="text"
+                            maxlength="11" id="cpf" placeholder="Type only numbers" name="input-step-1">
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Email</label>
+                     <input class="input-form-cadastro-1" type="text"
+                            id="emailCadastro" placeholder="Type any fictitious email" name="input-step-1">
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Password</label>
+                     <div class="linha-senha-cadastro">
+                         <input class="input-form-cadastro-senha" type="password"
+                                id="senhaCadastro" placeholder="Choose a 6-digit password" name="input-step-1">
+                         <img src="icon/olho.png" class="icon-input" id="trocarInputCadastro">
+                     </div>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Phone</label>
+                     <input class="input-form-cadastro-2" type="text"
+                            id="celular" placeholder="Type any number" maxlength="11">
+                 </div>
+
+                 <footer class="footer-form-cadastro">
+                     <button type="button" class="btn-cadastro" id="next">Next</button>
+                 </footer>
+             </form>
+
+             <!--Step 2-->
+             <form class="step" id="step-2">
+                 <div class="cadastro-titulo">
+                     <h1 class="cadastro-titulo-texto">Address</h1>
+                     <button type="reset" class="btn-limpar"><img src="icon/lixo.png" width="20px"></button>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Zip Code</label>
+                     <div class="linha-cep">
+                         <input class="input-form-cadastro-4" type="text" height="100%"
+                                id="cep" maxlength="8" placeholder="Only numbers" name="input-step-2">
+                         <!--<button class="btn-cep" type="button" onclick="buscarEnderecoPorCEP()">Buscar</button>-->
+                     </div>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">State</label>
+                     <select id="estado" class="input-form-cadastro-3" name="input-step-2">
+                         <option value="escolha">Choose</option>
+                         <option value="SA">State A</option>
+                         <option value="SB">State B</option>
+                         <option value="SC">State C</option>
+                     </select>
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">City</label>
+                     <input class="input-form-cadastro-2" type="text"
+                            id="cidade" placeholder="Type your city" name="input-step-2">
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Neighborhood</label>
+                     <input class="input-form-cadastro-2" type="text"
+                            id="bairro" placeholder="Type your neighborhood" name="input-step-2">
+                 </div>
+
+                 <div class="divisor">
+                     <label class="label-form-cadastro">Street</label>
+                     <input class="input-form-cadastro-1" type="text"
+                            id="rua" placeholder="Type your street" name="input-step-2">
+                 </div>
+
+                 <div class="divisor-1">
+                     <label class="label-form-cadastro">Number</label>
+                     <input class="input-form-cadastro-3" type="text"
+                            id="numero" placeholder="XXX" name="input-step-2" maxlength="6">
+                 </div>
+
+                 <div class="divisor-2">
+                     <label class="label-form-cadastro">Extra info</label>
+                     <input class="input-form-cadastro-2" type="text"
+                            id="complemento" placeholder="Ex: Apartment B">
+                 </div>
+
+                 <footer class="footer-form-cadastro">
+                     <button type="button" class="btn-voltar" id="back">Previous</button>
+                     <button type="button" class="btn-cadastro" onclick="cadastrarUsuario()">Register</button>
+                 </footer>
+             </form>
+         </div>
+
+         <!--Login-->
+         <form class="form-login" id="login" name="formulario">
+             <div class="div-form-login">
+                 <div class="linha-login">
+                     <input class="input-form-login" type="email"
+                            placeholder="Email" id="email" name="inputLogin">
+                     <img src="icon/user.png" class="icon-input">
+                 </div>
+                 <div class="linha-login">
+                     <input class="input-form-login" type="password"
+                            placeholder="Password" id="senha" name="inputLogin">
+                     <img src="icon/olho.png" class="icon-input" id="trocarInputLogin">
+                 </div>
+             </div>
+             <footer class="footer-form-login">
+                 <button type="button" class="btn-login" id="btnLogin" onclick="fazerLogin()" disabled>Login</button>
+             </footer>
+         </form>
+     </div>
+
+    <!--Message Box-->
+     <div class="esconderMessageBox" id="esconder">
+         <div class="message-box" id="mensagem">
+             <div class="texto-message-box" id="textoMensagem"></div>
+             <footer class="footer-message-box" id="btnMensagem">
+                 <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+             </footer>
+         </div>
+     </div>
+ </body>
+</html>
