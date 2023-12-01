@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>futshop</name>
-	<description>Site para web loja de futebol</description>
+	<description>Online Store</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

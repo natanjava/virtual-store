@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+
+  install:
+     runtime-versions:
+       java:  openjdk17
+       commands: 
+        - echo INSTALL DEPENDENCIES
+        - mvn install
+  build:
+    commands:
+    - echo BUILD PHASE
+    - mvn compile
+  pos_build:
+    commands:
+    - echo POS BUILD PHASE
+    - mvn package -DskipTests
+    - cd target/
+    - ls -l
+    
+artifacts:
+  files:
+  - futshop-0.0.1-SNAPSHOT.war
+  base directory: target
+  discard-paths: Yes

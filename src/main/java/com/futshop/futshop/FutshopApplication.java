@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class FutshopApplication extends SpringBootServletInitializer {
+public class FutshopApplication {
 
 	public static void main(String[] args){
 		SpringApplication.run(FutshopApplication.class, args);
@@ -19,8 +19,10 @@ public class FutshopApplication extends SpringBootServletInitializer {
 		
 	}
 	
+	/*
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(FutshopApplication.class);
 	}
+	 * */
 }
